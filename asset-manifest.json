@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/scheduling_appointments/static/css/main.505d5582.chunk.css",
+    "main.js": "/scheduling_appointments/static/js/main.8e731fb0.chunk.js",
+    "main.js.map": "/scheduling_appointments/static/js/main.8e731fb0.chunk.js.map",
+    "runtime-main.js": "/scheduling_appointments/static/js/runtime-main.fadd5ae6.js",
+    "runtime-main.js.map": "/scheduling_appointments/static/js/runtime-main.fadd5ae6.js.map",
+    "static/js/2.df8de76d.chunk.js": "/scheduling_appointments/static/js/2.df8de76d.chunk.js",
+    "static/js/2.df8de76d.chunk.js.map": "/scheduling_appointments/static/js/2.df8de76d.chunk.js.map",
+    "index.html": "/scheduling_appointments/index.html",
+    "precache-manifest.62c95999d58cbe51494454c54fbc068d.js": "/scheduling_appointments/precache-manifest.62c95999d58cbe51494454c54fbc068d.js",
+    "service-worker.js": "/scheduling_appointments/service-worker.js",
+    "static/css/main.505d5582.chunk.css.map": "/scheduling_appointments/static/css/main.505d5582.chunk.css.map",
+    "static/js/2.df8de76d.chunk.js.LICENSE.txt": "/scheduling_appointments/static/js/2.df8de76d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fadd5ae6.js",
+    "static/js/2.df8de76d.chunk.js",
+    "static/css/main.505d5582.chunk.css",
+    "static/js/main.8e731fb0.chunk.js"
+  ]
+}
