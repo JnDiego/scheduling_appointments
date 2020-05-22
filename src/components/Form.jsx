@@ -18,20 +18,30 @@ const Form = () => {
     });
   };
 
+  // Extraer los valores
+  const { petName, ownerName, date, hour, symptoms } = appointment;
+
   return (
     <Fragment>
       <h2>Create Appointment</h2>
       <form action="">
         <label htmlFor="petName">Pet Name</label>
-        <input type="text" name="petName" className="u-full-width" placeholder="Pet Name" onChange={handleChange} />
+        <input type="text" name="petName" className="u-full-width" placeholder="Pet Name" onChange={handleChange} value={petName} />
         <label htmlFor="ownerName">Owner Name</label>
-        <input type="text" name="ownerName" className="u-full-width" placeholder="Pet Owner's Name" onChange={handleChange} />
+        <input
+          type="text"
+          name="ownerName"
+          className="u-full-width"
+          placeholder="Pet Owner's Name"
+          onChange={handleChange}
+          value={ownerName}
+        />
         <label htmlFor="date">Date</label>
-        <input type="date" name="date" className="u-full-width" onChange={handleChange} />
+        <input type="date" name="date" className="u-full-width" onChange={handleChange} value={date} />
         <label htmlFor="hour">Hour</label>
-        <input type="time" name="hour" className="u-full-width" onChange={handleChange} />
+        <input type="time" name="hour" className="u-full-width" onChange={handleChange} value={hour} />
         <label htmlFor="symptoms">Symptoms</label>
-        <textarea name="symptoms" className="u-full-width" onChange={handleChange}></textarea>
+        <textarea name="symptoms" className="u-full-width" onChange={handleChange} value={symptoms}></textarea>
 
         <button type="button" className="u-full-width button-primary">
           Add Appointment
