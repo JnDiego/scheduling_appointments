@@ -18,6 +18,7 @@ function App() {
   };
 
   // Mensaje condicional
+  const title = appointments.length === 0 ? 'There are no appointments' : 'Manage your appointments';
 
   return (
     <Fragment>
@@ -28,7 +29,7 @@ function App() {
             <Form createAppointment={createAppointment} />
           </div>
           <div className="one-half column">
-            <h2>Manage your appointments</h2>
+            <h2>{title}</h2>
             {appointments.map((appointment) => (
               <Appointment key={appointment.id} appointment={appointment} deteleAppointment={deteleAppointment} />
             ))}
