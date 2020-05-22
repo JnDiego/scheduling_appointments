@@ -1,10 +1,21 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import Form from './components/Form';
 import Appointment from './components/Appointment';
 
 function App() {
+  // Citas en local storage
+  let initialAppointments = JSON.parse(localStorage.getItem('appointments'));
+  if (!initialAppointments) {
+    initialAppointments = [];
+  }
+
   // Arreglo de citas
-  const [appointments, saveAppointments] = useState([]);
+  const [appointments, saveAppointments] = useState(initialAppointments);
+
+  // Use Effect para realizar operaciones cuando el state cambia
+  useEffect(() => {
+    localStorage.setItem('appointments', JSON.stringify(appointments));
+  }, [appointments, initialAppointments]);
 
   // Función que tome las citas actuales y agregue la nueva
   const createAppointment = (appointment) => {
