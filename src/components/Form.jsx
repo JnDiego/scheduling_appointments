@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
+import uuid from 'uuid/dist/v4';
 
-const Form = () => {
+const Form = ({ createAppointment }) => {
   // Crear State de Citas
   const [appointment, updateAppointment] = useState({
     petName: '',
@@ -9,6 +10,9 @@ const Form = () => {
     hour: '',
     symptoms: '',
   });
+
+  // State de errores
+  const [error, setError] = useState(false);
 
   // Función que se ejecuta cuando el usuario escribe en un input
   const handleChange = (event) => {
@@ -21,10 +25,35 @@ const Form = () => {
   // Extraer los valores
   const { petName, ownerName, date, hour, symptoms } = appointment;
 
+  // Cuando el usuario envía el formulario
+  const submitAppointment = (event) => {
+    event.preventDefault();
+
+    // Validar
+    if (petName.trim() === '' || ownerName.trim() === '' || date.trim() === '' || hour.trim() === '' || symptoms.trim() === '') {
+      setError(true);
+      console.error('Sorry, there was an error in the form.');
+      return;
+    }
+
+    // Eliminar mensaje de error previo
+    setError(false);
+
+    // Asignar ID
+    appointment.id = uuid();
+
+    // Crear la cita en el state principal
+    createAppointment(appointment);
+
+    // Reiniciar el form
+    updateAppointment({ petName: '', ownerName: '', date: '', hour: '', symptoms: '' });
+  };
+
   return (
     <Fragment>
       <h2>Create Appointment</h2>
-      <form action="">
+      {error ? <p className="alerta-error">Todos los campos son obligatorios.</p> : null}
+      <form onSubmit={submitAppointment}>
         <label htmlFor="petName">Pet Name</label>
         <input type="text" name="petName" className="u-full-width" placeholder="Pet Name" onChange={handleChange} value={petName} />
         <label htmlFor="ownerName">Owner Name</label>
@@ -43,7 +72,7 @@ const Form = () => {
         <label htmlFor="symptoms">Symptoms</label>
         <textarea name="symptoms" className="u-full-width" onChange={handleChange} value={symptoms}></textarea>
 
-        <button type="button" className="u-full-width button-primary">
+        <button type="submit" className="u-full-width button-primary">
           Add Appointment
         </button>
       </form>
