@@ -8,9 +8,17 @@ function App() {
 
   // Función que tome las citas actuales y agregue la nueva
   const createAppointment = (appointment) => {
-    console.log(appointment);
     saveAppointments([...appointments, appointment]);
   };
+
+  // Funcion que elimina una cita por su ID
+  const deteleAppointment = (id) => {
+    const newAppointments = appointments.filter((appointment) => appointment.id !== id);
+    saveAppointments(newAppointments);
+  };
+
+  // Mensaje condicional
+
   return (
     <Fragment>
       <h1>Patient Management</h1>
@@ -22,7 +30,7 @@ function App() {
           <div className="one-half column">
             <h2>Manage your appointments</h2>
             {appointments.map((appointment) => (
-              <Appointment key={appointment.id} appointment={appointment} />
+              <Appointment key={appointment.id} appointment={appointment} deteleAppointment={deteleAppointment} />
             ))}
           </div>
         </div>
